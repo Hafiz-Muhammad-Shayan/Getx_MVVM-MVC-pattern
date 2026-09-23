@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mvc_pattern/utils/utils.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,15 +14,11 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-
-
-      floatingActionButton: FloatingActionButton(
-          onPressed: (){
-            Utils.toastMessageCenter("Shayan");
-            Utils.toastMessage("Shayan");
-
-          }
+      appBar: AppBar(
+        title: Text("email_hint".tr),
       ),
+
+
     );
   }
 }
