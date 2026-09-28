@@ -28,7 +28,9 @@ class NetworkApiServices extends BaseApiServices{
       throw RequestTimeOut("") ;
 
     }
-
+    if (kDebugMode) {
+      print(responseJson) ;
+    }
     return responseJson ;
 
 
@@ -46,7 +48,7 @@ class NetworkApiServices extends BaseApiServices{
     try {
 
       final response = await http.post(Uri.parse(url),
-      body: jsonEncode(data)
+      body: data
       ).timeout(Duration(seconds: 10));
       responseJson = returnResponse(response) ;
     } on SocketException {
@@ -68,7 +70,8 @@ class NetworkApiServices extends BaseApiServices{
         return responseJson ;
 
       case 400 :
-        throw InvalidUrlException;
+        dynamic responseJson = jsonDecode(response.body) ;
+        return responseJson ;
         default :
           throw FetchDataException("Error accored while communicating with server" + response.statusCode.toString()) ;
     }
