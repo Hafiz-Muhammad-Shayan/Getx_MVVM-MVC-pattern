@@ -6,6 +6,7 @@ import 'package:mvc_pattern/res/components/general_exception.dart';
 import 'package:mvc_pattern/res/components/internet_exception_widget.dart';
 import 'package:mvc_pattern/res/components/round_button.dart';
 import 'package:mvc_pattern/utils/utils.dart';
+import 'package:mvc_pattern/view_models/services/splash_services.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,36 +16,26 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  SplashServices splashScreen = SplashServices();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    splashScreen.islogin();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal,
 
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Center(
-            child: Text("email_hint".tr,)),
-      ),
-
-      body: Column(
-        children: [
-          RoundButton(
-            title: "Login",
-            onPress: () {  },
-            width:  double.infinity,
-            height: 60,
-
+      body: Center(
+          child: Text(
+              "welcome_back".tr,
+            textAlign: TextAlign.center,
           ),
-          RoundButton(
-            title: "Signup",
-            onPress: () {  },
-            width:  120,
-            height: 60,
-            buttonColor: AppColor.secondaryButtonColor,
-
-          ),
-        ],
       ),
-
 
 
 

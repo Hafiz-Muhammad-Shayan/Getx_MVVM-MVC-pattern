@@ -4,6 +4,6 @@ class RoutesName {
 
   static const splashScreen = "/" ;
 
-  static const loginScreen = "/login_screen" ;
+  static const loginView = "/login_view" ;
 
 }
