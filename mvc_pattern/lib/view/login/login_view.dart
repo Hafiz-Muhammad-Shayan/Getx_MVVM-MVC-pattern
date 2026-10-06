@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvc_pattern/res/components/round_button.dart';
 import 'package:mvc_pattern/utils/utils.dart';
-import 'package:mvc_pattern/view_models/controller/login_view_model.dart';
+import 'package:mvc_pattern/view_models/controller/login/login_view_model.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -22,7 +22,13 @@ class _LoginViewState extends State<LoginView> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         automaticallyImplyLeading: false,
-        title: Center(child: Text("login".tr)),
+        title: Center(
+            child: Text(
+              "login".tr,
+              style: TextStyle(
+                color: Colors.white ,
+              ),
+            )),
       ),
 
       body: Padding(
@@ -83,16 +89,18 @@ class _LoginViewState extends State<LoginView> {
             SizedBox(
               height: 40,
             ),
-            Obx(() => RoundButton(
-              title: "login".tr,
-              loading: loginVM.loading.value,
-              onPress: (){
-                if (_formkey.currentState!.validate()){
-                  loginVM.loginApi() ;
-                }
-              },
-              width: 200,
-            ),),
+            Obx(() {
+              return RoundButton(
+                title: "login".tr,
+                loading: loginVM.loading.value,
+                onPress: (){
+                  if (_formkey.currentState!.validate()){
+                    loginVM.loginApi() ;
+                  }
+                },
+                width: 200,
+              );
+            }, ),
           ],
         ),
       ),

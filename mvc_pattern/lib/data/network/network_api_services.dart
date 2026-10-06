@@ -28,9 +28,7 @@ class NetworkApiServices extends BaseApiServices{
       throw RequestTimeOut("") ;
 
     }
-    if (kDebugMode) {
-      print(responseJson) ;
-    }
+
     return responseJson ;
 
 
@@ -41,7 +39,7 @@ class NetworkApiServices extends BaseApiServices{
 
     if (kDebugMode) {
       print(url);
-      print(data);
+      // print(data);
     }
 
     dynamic responseJson ;
@@ -57,7 +55,9 @@ class NetworkApiServices extends BaseApiServices{
       throw RequestTimeOut("") ;
 
     }
-
+    if (kDebugMode) {
+      print(responseJson) ;
+    }
     return responseJson ;
 
 

@@ -1,9 +1,11 @@
 
 
-class RoutesName {
+class RouteName {
 
-  static const splashScreen = "/" ;
+  static const String splashScreen = "/" ;
 
-  static const loginView = "/login_view" ;
+  static const String loginView = "/login_view" ;
+
+  static const String homeView = "/home_view" ;
 
 }
